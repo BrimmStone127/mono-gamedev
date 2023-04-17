@@ -9,6 +9,8 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
+    private Map _map;
+
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -18,7 +20,22 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
+        // sample map data
+        int[,] sampleMapData = new int[,]
+        {
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 1, 1, 1, 0, 0, 0, 0, 0 },
+            { 0, 1, 1, 1, 1, 1, 1, 0, 0, 0 },
+            { 0, 1, 1, 1, 1, 1, 1, 0, 0, 0 },
+            { 0, 0, 1, 1, 1, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        };
+
+        _map = new Map(sampleMapData);
 
         base.Initialize();
     }
@@ -27,7 +44,7 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        // TODO: use this.Content to load your game content here
+        _map.LoadContent(Content);
     }
 
     protected override void Update(GameTime gameTime)
@@ -44,7 +61,11 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
-        // TODO: Add your drawing code here
+        _spriteBatch.Begin();
+
+        _map.Draw(_spriteBatch);
+
+        _spriteBatch.End();
 
         base.Draw(gameTime);
     }
