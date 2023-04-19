@@ -23,3 +23,8 @@
 /Users/claytonbrimm/Development/mono-gamedev/MyGame/obj/Debug/net6.0/MyGame.pdb
 /Users/claytonbrimm/Development/mono-gamedev/MyGame/obj/Debug/net6.0/MyGame.genruntimeconfig.cache
 /Users/claytonbrimm/Development/mono-gamedev/MyGame/obj/Debug/net6.0/ref/MyGame.dll
+/Users/claytonbrimm/Development/mono-gamedev/MyGame/bin/Debug/net6.0/Content/grass.xnb
+/Users/claytonbrimm/Development/mono-gamedev/MyGame/bin/Debug/net6.0/Content/soil.xnb
+/Users/claytonbrimm/Development/mono-gamedev/MyGame/bin/Debug/net6.0/Content/water.xnb
+/Users/claytonbrimm/Development/mono-gamedev/MyGame/bin/Debug/net6.0/Content/farmObject.xnb
+/Users/claytonbrimm/Development/mono-gamedev/MyGame/bin/Debug/net6.0/Content/player.xnb

@@ -1,0 +1,5 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/farmObject.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/farmObject.xnb","TextureProcessor","Texture2DContent",203,16469,0.133327
+"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/grass.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/grass.xnb","TextureProcessor","Texture2DContent",202,16469,0.130143
+"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/player.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/player.xnb","TextureProcessor","Texture2DContent",202,16469,0.161318
+"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/soil.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/soil.xnb","TextureProcessor","Texture2DContent",202,16469,0.125374
