@@ -1,4 +1,8 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/cloud1.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/cloud1.xnb","TextureProcessor","Texture2DContent",572,16469,0.268475
+"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/dirt2.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/dirt2.xnb","TextureProcessor","Texture2DContent",2183,16469,0.129268
 "/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/grass.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/grass.xnb","TextureProcessor","Texture2DContent",202,16469,0.133879
+"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/grass2.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/grass2.xnb","TextureProcessor","Texture2DContent",1837,16469,0.001775
 "/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/soil.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/soil.xnb","TextureProcessor","Texture2DContent",202,16469,0.00149
 "/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/water.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/water.xnb","TextureProcessor","Texture2DContent",202,16469,0.001461
+"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/water2.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/water2.xnb","TextureProcessor","Texture2DContent",2221,16469,0.001428

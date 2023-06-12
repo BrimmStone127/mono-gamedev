@@ -28,3 +28,7 @@
 /Users/claytonbrimm/Development/mono-gamedev/MyGame/bin/Debug/net6.0/Content/water.xnb
 /Users/claytonbrimm/Development/mono-gamedev/MyGame/bin/Debug/net6.0/Content/farmObject.xnb
 /Users/claytonbrimm/Development/mono-gamedev/MyGame/bin/Debug/net6.0/Content/player.xnb
+/Users/claytonbrimm/Development/mono-gamedev/MyGame/bin/Debug/net6.0/Content/cloud1.xnb
+/Users/claytonbrimm/Development/mono-gamedev/MyGame/bin/Debug/net6.0/Content/dirt2.xnb
+/Users/claytonbrimm/Development/mono-gamedev/MyGame/bin/Debug/net6.0/Content/grass2.xnb
+/Users/claytonbrimm/Development/mono-gamedev/MyGame/bin/Debug/net6.0/Content/water2.xnb

@@ -5,12 +5,19 @@ using Microsoft.Xna.Framework.Graphics;
 
 public class Map
 {
-    private readonly int [,] _mapData;
+    private readonly int[,] _mapData;
     private readonly Tile[,] _tiles;
+    public int Width { get; private set; }
+    public int Height { get; private set; }
+    public int TileWidth { get; } = 64;
+    public int TileHeight { get; } = 64;
 
     public Map(int[,] mapData)
     {
         _mapData = mapData;
+        Width = mapData.GetLength(1) * TileWidth;
+        Height = mapData.GetLength(0) * TileHeight;
+
         _tiles = new Tile[mapData.GetLength(0), mapData.GetLength(1)];
     }
 
@@ -27,15 +34,15 @@ public class Map
                 switch (tileType)
                 {
                     case 0: //Grass
-                        texture = content.Load<Texture2D>("grass");
+                        texture = content.Load<Texture2D>("grass2");
                         isWalkable = true;
                         break;
                     case 1: //Soil
-                        texture = content.Load<Texture2D>("soil");
+                        texture = content.Load<Texture2D>("dirt2");
                         isWalkable = true;
                         break;
                     case 2: //Water
-                        texture = content.Load<Texture2D>("water");
+                        texture = content.Load<Texture2D>("water2");
                         isWalkable = false;
                         break;
                     // Add more cases for other tile types

@@ -4,12 +4,25 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/cloud1.png</File>
+    <File>/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/dirt2.png</File>
     <File>/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/farmObject.png</File>
-    <File>/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/player.png</File>
     <File>/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/grass.png</File>
+    <File>/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/grass2.png</File>
+    <File>/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/player.png</File>
     <File>/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/soil.png</File>
+    <File>/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/water.png</File>
+    <File>/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/water2.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>
