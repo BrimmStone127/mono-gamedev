@@ -45,6 +45,10 @@ public class Map
                         texture = content.Load<Texture2D>("water2");
                         isWalkable = false;
                         break;
+                    case 3: //tree1
+                        texture = content.Load<Texture2D>("tree1");
+                        isWalkable = false;
+                        break;
                     // Add more cases for other tile types
                     default:
                         throw new ArgumentOutOfRangeException($"Invalid tile type: {tileType}");                    

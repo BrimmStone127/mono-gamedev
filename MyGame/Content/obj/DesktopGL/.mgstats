@@ -1,10 +1,11 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/cloud1.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/cloud1.xnb","TextureProcessor","Texture2DContent",572,16469,0.143758
-"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/dirt2.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/dirt2.xnb","TextureProcessor","Texture2DContent",2183,16469,0.001447
-"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/farmObject.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/farmObject.xnb","TextureProcessor","Texture2DContent",203,16469,0.00155
-"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/grass.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/grass.xnb","TextureProcessor","Texture2DContent",202,16469,0.001444
-"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/grass2.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/grass2.xnb","TextureProcessor","Texture2DContent",1837,16469,0.001766
-"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/player.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/player.xnb","TextureProcessor","Texture2DContent",202,16469,0.001577
-"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/soil.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/soil.xnb","TextureProcessor","Texture2DContent",202,16469,0.00151
-"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/water.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/water.xnb","TextureProcessor","Texture2DContent",202,16469,0.001563
-"/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/water2.png","/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/water2.xnb","TextureProcessor","Texture2DContent",2221,16469,0.001784
+"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/cloud1.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/cloud1.xnb","TextureProcessor","Texture2DContent",1430,16469,0.0953639
+"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/dirt2.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/dirt2.xnb","TextureProcessor","Texture2DContent",5731,16469,0.0023394
+"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/farmObject.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/farmObject.xnb","TextureProcessor","Texture2DContent",203,16469,0.0017638
+"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/grass.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/grass.xnb","TextureProcessor","Texture2DContent",202,16469,0.0019673
+"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/grass2.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/grass2.xnb","TextureProcessor","Texture2DContent",5767,16469,0.0024526
+"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/player.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/player.xnb","TextureProcessor","Texture2DContent",202,16469,0.0017581
+"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/soil.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/soil.xnb","TextureProcessor","Texture2DContent",202,16469,0.0015317
+"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/tree1.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/tree1.xnb","TextureProcessor","Texture2DContent",1950,16469,0.0018524
+"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/water.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/water.xnb","TextureProcessor","Texture2DContent",202,16469,0.0015215
+"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/water2.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/water2.xnb","TextureProcessor","Texture2DContent",5425,16469,0.0015513

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/soil.png</SourceFile>
-  <SourceTime>2023-04-17T22:03:10.01271-04:00</SourceTime>
-  <DestFile>/Users/claytonbrimm/Development/mono-gamedev/MyGame/Content/bin/DesktopGL/soil.xnb</DestFile>
-  <DestTime>2023-04-30T21:58:39.4131962-04:00</DestTime>
+  <SourceFile>C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/soil.png</SourceFile>
+  <SourceTime>2023-06-12T11:21:03.2476323-04:00</SourceTime>
+  <DestFile>C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/soil.xnb</DestFile>
+  <DestTime>2023-06-14T09:45:24.8784405-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -66,3 +66,4 @@ C:\Users\clayb\Dev\mono-gamedev\MyGame\obj\Debug\net6.0\refint\MyGame.dll
 C:\Users\clayb\Dev\mono-gamedev\MyGame\obj\Debug\net6.0\MyGame.pdb
 C:\Users\clayb\Dev\mono-gamedev\MyGame\obj\Debug\net6.0\MyGame.genruntimeconfig.cache
 C:\Users\clayb\Dev\mono-gamedev\MyGame\obj\Debug\net6.0\ref\MyGame.dll
+C:\Users\clayb\Dev\mono-gamedev\MyGame\bin\Debug\net6.0\Content\tree1.xnb
