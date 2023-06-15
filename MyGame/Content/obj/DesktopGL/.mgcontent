@@ -12,10 +12,14 @@
     <File>C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/player.png</File>
     <File>C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/soil.png</File>
     <File>C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/tree1.png</File>
+    <File>C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/tree2.png</File>
+    <File>C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/tree3.png</File>
     <File>C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/water.png</File>
     <File>C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/water2.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
