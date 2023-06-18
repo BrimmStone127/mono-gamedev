@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework.Graphics;
 public class AnimatedTile : Tile
 {
     private readonly Animation _animation;
-    private float _elapsedTime;
 
     public AnimatedTile(Vector2 position, Animation animation, bool isWalkable)
         : base(position, animation.CurrentFrame, isWalkable)
@@ -14,8 +13,13 @@ public class AnimatedTile : Tile
 
     public void Update(GameTime gameTime)
     {
-        _elapsedTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-        _animation.Update(_elapsedTime);
+        _animation.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
         this.Texture = _animation.CurrentFrame;
+    }
+
+    public override void Draw(SpriteBatch spriteBatch)
+    {
+        Rectangle destinationRectangle = new Rectangle(Position.ToPoint(), _animation.CurrentFrameRectangle.Size);
+        spriteBatch.Draw(_animation.CurrentFrame, destinationRectangle, _animation.CurrentFrameRectangle, Color.White);
     }
 }

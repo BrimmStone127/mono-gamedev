@@ -1,30 +1,41 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 public class Animation
 {
-    private Texture2D[] _frames;
+    private Texture2D _texture; // Sprite sheet.
+    private Rectangle[] _frames; // Frames extracted from the sprite sheet.
     private int _currentFrameIndex;
     private float _frameTime;
-    private float _timer;
+    private float _elapsedTime;
 
-    public Texture2D CurrentFrame => _frames[_currentFrameIndex];
+    public Texture2D CurrentFrame => _texture; // Now we return the whole texture.
+    public Rectangle CurrentFrameRectangle => _frames[_currentFrameIndex]; // And the current frame rectangle.
 
-    public Animation(Texture2D[] frames, float frameTime)
+    public Animation(Texture2D texture, int frameWidth, int frameHeight, int frameCount, float frameTime)
     {
-        _frames = frames;
+        _texture = texture;
         _frameTime = frameTime;
-        _currentFrameIndex = 0;
-        _timer = 0;
+        _frames = new Rectangle[frameCount];
+
+        int framesPerRow = _texture.Width / frameWidth;
+
+        for (int i = 0; i < frameCount; i++)
+        {
+            int x = i % framesPerRow * frameWidth;
+            int y = i / framesPerRow * frameHeight;
+            _frames[i] = new Rectangle(x, y, frameWidth, frameHeight);
+        }
     }
 
-    public void Update(float elapsedTime)
+    public void Update(float deltaTime)
     {
-        _timer += elapsedTime;
+        _elapsedTime += deltaTime;
 
-        if (_timer >= _frameTime)
+        if (_elapsedTime >= _frameTime)
         {
-            _timer = 0;
             _currentFrameIndex = (_currentFrameIndex + 1) % _frames.Length;
+            _elapsedTime = 0f;
         }
     }
 }

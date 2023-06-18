@@ -29,8 +29,8 @@ namespace MyGame
         protected override void Initialize()
         {
             // sample map data
-        int[,] sampleMapData = new int[,]
-        {
+            int[,] sampleMapData = new int[,]
+            {
             { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 },
             { 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3 },
             { 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 3, 3, 3 },
@@ -53,7 +53,7 @@ namespace MyGame
             { 3, 0, 4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3 },
             { 3, 5, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 3 },
             { 3, 0, 0, 4, 1, 1, 1, 1, 1, 1, 0, 0, 5, 0, 0, 0, 3 },
-            { 3, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 5, 0, 0, 3 },
+            { 3, 0, 0, 0, 1, 1, 6, 1, 1, 1, 0, 0, 0, 5, 0, 0, 3 },
             { 3, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3 },
             { 3, 5, 0, 5, 0, 0, 1, 0, 5, 0, 0, 4, 0, 0, 4, 0, 3 },
             { 3, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 3 },
@@ -67,11 +67,11 @@ namespace MyGame
             { 3, 3, 4, 0, 0, 0, 0, 5, 0, 0, 0, 4, 5, 3, 3, 3, 3 },
             { 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3 },
             { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 },
-        };
+            };
 
-        _map = new Map(sampleMapData);
+            _map = new Map(sampleMapData);
 
-        base.Initialize();
+            base.Initialize();
         }
 
         protected override void LoadContent()
@@ -107,27 +107,30 @@ namespace MyGame
                 playerMovement.Normalize();
                 playerMovement *= _playerSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 Vector2 newPosition = _playerPosition + playerMovement;
-                
+
                 // Update the clamping values using the tile size and map dimensions
                 newPosition.X = MathHelper.Clamp(newPosition.X, 0, _map.Width * TileWidth - _playerTexture.Width);
                 newPosition.Y = MathHelper.Clamp(newPosition.Y, 0, _map.Height * TileHeight - _playerTexture.Height);
-                
+
                 _playerPosition = newPosition;
             }
 
             _camera.Update(_playerPosition, GraphicsDevice.Viewport);
 
+            _map.Update(gameTime);  // Update the map (includes the animated tiles)
+
             base.Update(gameTime);
         }
 
+
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             _spriteBatch.Begin(transformMatrix: _camera.Transform, sortMode: SpriteSortMode.FrontToBack);
             _map.Draw(_spriteBatch);
             _spriteBatch.Draw(_playerTexture, _playerPosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.5f);
-            
+
             _spriteBatch.End();
 
             base.Draw(gameTime);

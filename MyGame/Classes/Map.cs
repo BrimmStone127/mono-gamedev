@@ -1,7 +1,8 @@
 using System;
-using System.Numerics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+
 
 public class Map
 {
@@ -36,46 +37,74 @@ public class Map
                     case 0: //Grass
                         texture = content.Load<Texture2D>("grass2");
                         isWalkable = true;
+                        Vector2 position = new Vector2(x * texture.Width, y * texture.Height);
+                        _tiles[x, y] = new Tile(position, texture, isWalkable);
                         break;
                     case 1: //Soil
                         texture = content.Load<Texture2D>("dirt2");
                         isWalkable = true;
+                        position = new Vector2(x * texture.Width, y * texture.Height);
+                        _tiles[x, y] = new Tile(position, texture, isWalkable);
                         break;
                     case 2: //Water
                         texture = content.Load<Texture2D>("water2");
                         isWalkable = false;
+                        position = new Vector2(x * texture.Width, y * texture.Height);
+                        _tiles[x, y] = new Tile(position, texture, isWalkable);
                         break;
                     case 3: //tree1
                         texture = content.Load<Texture2D>("tree1");
                         isWalkable = false;
+                        position = new Vector2(x * texture.Width, y * texture.Height);
+                        _tiles[x, y] = new Tile(position, texture, isWalkable);
                         break;
-                    case 4: //tree1
+                    case 4: //tree2
                         texture = content.Load<Texture2D>("tree2");
                         isWalkable = false;
+                        position = new Vector2(x * texture.Width, y * texture.Height);
+                        _tiles[x, y] = new Tile(position, texture, isWalkable);
                         break;
-                    case 5: //tree1
+                    case 5: //tree3
                         texture = content.Load<Texture2D>("tree3");
                         isWalkable = false;
+                        position = new Vector2(x * texture.Width, y * texture.Height);
+                        _tiles[x, y] = new Tile(position, texture, isWalkable);
                         break;
-                    // Add more cases for other tile types
+                    case 6: //fire animation
+                        var fireTexture = content.Load<Texture2D>("fire1");
+                        int frameWidth = fireTexture.Width / 22; // I'm assuming there are 22 frames.
+                        var fireAnimation = new Animation(fireTexture, frameWidth, fireTexture.Height, 22, 0.1f);
+                        Vector2 positionF = new Vector2(x * frameWidth, y * fireTexture.Height);
+                        _tiles[x, y] = new AnimatedTile(positionF, fireAnimation, false);
+                        break;
                     default:
-                        throw new ArgumentOutOfRangeException($"Invalid tile type: {tileType}");                    
+                        throw new ArgumentOutOfRangeException($"Invalid tile type: {tileType}");
                 }
-
-                Vector2 position = new Vector2(x * texture.Width, y * texture.Height);
-                _tiles[x, y] = new Tile(position, texture, isWalkable);
             }
         }
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        for(int x = 0; x < _tiles.GetLength(0); x++ )
+        for (int x = 0; x < _tiles.GetLength(0); x++)
         {
-            for(int y = 0; y < _tiles.GetLength(1); y++ )
+            for (int y = 0; y < _tiles.GetLength(1); y++)
             {
                 _tiles[x, y].Draw(spriteBatch);
             }
         }
     }
+
+    public void Update(GameTime gameTime)
+    {
+        foreach (var tile in _tiles)
+        {
+            if (tile is AnimatedTile animatedTile)
+            {
+                animatedTile.Update(gameTime);
+            }
+        }
+    }
+
 }
+
