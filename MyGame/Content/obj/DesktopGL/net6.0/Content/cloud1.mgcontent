@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/cloud1.png</SourceFile>
-  <SourceTime>2023-06-21T22:05:27.661373-04:00</SourceTime>
+  <SourceTime>2023-06-21T23:55:00.5582426-04:00</SourceTime>
   <DestFile>C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/cloud1.xnb</DestFile>
-  <DestTime>2023-06-21T22:06:02.3367409-04:00</DestTime>
+  <DestTime>2023-06-21T23:55:10.8549959-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
