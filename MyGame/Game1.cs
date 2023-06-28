@@ -34,8 +34,9 @@ namespace MyGame
 
         protected override void Initialize()
         {
-            // sample map data
-            int[,] sampleMapData = new int[,]
+
+            _map = new Map();
+            _map.LoadMapData(new int[,]
             {
             { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 },
             { 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3 },
@@ -73,9 +74,7 @@ namespace MyGame
             { 3, 3, 4, 0, 0, 0, 0, 5, 0, 0, 0, 4, 5, 3, 3, 3, 3 },
             { 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3 },
             { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 },
-            };
-
-            _map = new Map(sampleMapData);
+            });
 
             base.Initialize();
         }

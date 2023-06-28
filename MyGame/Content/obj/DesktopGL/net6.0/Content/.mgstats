@@ -1,5 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/cloud1.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/cloud1.xnb","TextureProcessor","Texture2DContent",5094,65621,0.087429
+"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/cloud1.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/cloud1.xnb","TextureProcessor","Texture2DContent",5094,65621,0.2012361
 "C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/dirt2.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/dirt2.xnb","TextureProcessor","Texture2DContent",5731,16469,0.0949643
 "C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/farmObject.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/farmObject.xnb","TextureProcessor","Texture2DContent",203,16469,0.0015879
 "C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/fire1.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/fire1.xnb","TextureProcessor","Texture2DContent",24155,360533,0.0952447
@@ -7,8 +7,8 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/grass2.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/grass2.xnb","TextureProcessor","Texture2DContent",5323,16469,0.0905311
 "C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/player.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/player.xnb","TextureProcessor","Texture2DContent",202,16469,0.0016333
 "C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/soil.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/soil.xnb","TextureProcessor","Texture2DContent",202,16469,0.0015922
-"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/tree1.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/tree1.xnb","TextureProcessor","Texture2DContent",5767,16469,0.0017801
-"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/tree2.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/tree2.xnb","TextureProcessor","Texture2DContent",5324,16469,0.0894542
-"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/tree3.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/tree3.xnb","TextureProcessor","Texture2DContent",6020,16469,0.0017469
+"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/tree1.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/tree1.xnb","TextureProcessor","Texture2DContent",1950,16469,0.098192
+"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/tree2.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/tree2.xnb","TextureProcessor","Texture2DContent",2517,16469,0.0018404
+"C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/tree3.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/tree3.xnb","TextureProcessor","Texture2DContent",1430,16469,0.0016774
 "C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/water.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/water.xnb","TextureProcessor","Texture2DContent",202,16469,0.0017249
 "C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/water2.png","C:/Users/clayb/Dev/mono-gamedev/MyGame/Content/bin/DesktopGL/Content/water2.xnb","TextureProcessor","Texture2DContent",5425,16469,0.0019073
