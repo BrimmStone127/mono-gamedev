@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -10,7 +11,8 @@ namespace MyGame
         private SpriteBatch _spriteBatch;
         private Texture2D _playerTexture;
         private Vector2 _playerPosition;
-        private Map _map;
+        private List<Map> _maps; // Moved map list to class level
+        private Map _mainMap; // A specific map used for defining the map width and height
         private Camera _camera;
         private float _playerSpeed;
         private const int TileWidth = 64;
@@ -34,47 +36,100 @@ namespace MyGame
 
         protected override void Initialize()
         {
+            // Create a list to hold the maps
+            _maps = new List<Map>(); 
 
-            _map = new Map();
-            _map.LoadMapData(new int[,]
+            // Create and initialize first map layer
+            Map _map1 = new Map();
+            _map1.LoadMapData(new int[,]
             {
-            { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 },
-            { 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3 },
-            { 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 3, 3, 3 },
-            { 3, 3, 4, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 5, 0, 3, 3 },
-            { 3, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3 },
-            { 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 3, 3 },
-            { 3, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 3, 3 },
-            { 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3 },
-            { 3, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 3, 3, 3, 3 },
-            { 3, 5, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 3 },
-            { 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 3 },
-            { 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 3, 3 },
-            { 3, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3 },
-            { 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 3, 3 },
-            { 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 3, 3 },
-            { 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3 },
-            { 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3 },
-            { 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 5, 3, 3, 3 },
-            { 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3 },
-            { 3, 0, 4, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3 },
-            { 3, 5, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 3 },
-            { 3, 0, 0, 4, 1, 1, 0, 0, 1, 1, 0, 0, 5, 0, 0, 0, 3 },
-            { 3, 0, 0, 0, 1, 0, 6, 0, 1, 1, 0, 0, 0, 5, 0, 0, 3 },
-            { 3, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3 },
-            { 3, 5, 0, 5, 0, 0, 1, 0, 5, 0, 0, 4, 0, 0, 4, 0, 3 },
-            { 3, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 3 },
-            { 3, 3, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3 },
-            { 3, 3, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 3, 3 },
-            { 3, 3, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3 },
-            { 3, 3, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3 },
-            { 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 3 },
-            { 3, 3, 3, 5, 0, 0, 0, 0, 0, 0, 5, 0, 0, 4, 3, 3, 3 },
-            { 3, 3, 3, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 3, 3, 3, 3 },
-            { 3, 3, 4, 0, 0, 0, 0, 5, 0, 0, 0, 4, 5, 3, 3, 3, 3 },
-            { 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3 },
-            { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 },
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+                {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, },
+                {1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, },
+                {1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, },
+                {1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, },
+                {1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, },
+                {1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, },
+                {1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, },
+                {1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, },
+                {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, },
+                {1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, },
+                {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, },
+                {1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, },
+                {1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, },
+                {1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, },
+                {1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, },
+                {1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, },
+                {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, },
+                {1, 1, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, },
+                {1, 1, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 1, 1, },
+                {1, 1, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, },
+                {1, 1, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, },
+                {1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 1, },
+                {1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, },
+                {1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, },
+                {1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, },
+                {1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, },
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, }
             });
+
+            // Add the first map layer to the list
+            _maps.Add(_map1);
+
+            // Create and initialize second map layer
+            Map _map2 = new Map();
+            _map2.LoadMapData(new int[,]
+            {
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+                {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, },
+                {1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, },
+                {1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, },
+                {1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, },
+                {1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, },
+                {1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, },
+                {1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, },
+                {1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, },
+                {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, },
+                {1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, },
+                {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, },
+                {1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, },
+                {1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, },
+                {1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, },
+                {1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, },
+                {1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, },
+                {1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, },
+                {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, },
+                {1, 1, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, },
+                {1, 1, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 1, 1, },
+                {1, 1, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, },
+                {1, 1, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, },
+                {1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 1, },
+                {1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, },
+                {1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, },
+                {1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, },
+                {1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, },
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, }
+            });
+
+            // Add the second map layer to the list
+            _maps.Add(_map2);
+
+            _mainMap = _maps[0]; 
 
             base.Initialize();
         }
@@ -86,9 +141,13 @@ namespace MyGame
             _playerTexture = Content.Load<Texture2D>("cloud1");
             _playerPosition = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
             _playerSpeed = 200.0f;
-            _map.LoadContent(Content);
+            
+            foreach (Map map in _maps)
+            {
+                map.LoadContent(Content);
+            }
             _camera = new Camera();
-            _camera.SetMapDimensions(_map.Width, _map.Height, _map.TileWidth, _map.TileHeight);
+            _camera.SetMapDimensions(_mainMap.Width, _mainMap.Height, _mainMap.TileWidth, _mainMap.TileHeight);
         }
 
 
@@ -112,7 +171,8 @@ namespace MyGame
                 playerMovement.X -= 1;
                 _playerEffects = SpriteEffects.FlipHorizontally; // Set to flip when moving left
             }
-            if (keyboardState.IsKeyDown(Keys.D)){
+            if (keyboardState.IsKeyDown(Keys.D))
+            {
                 playerMovement.X += 1;
                 _playerEffects = SpriteEffects.None; // Set to no flip when moving right
             }
@@ -138,8 +198,8 @@ namespace MyGame
                 playerMovement *= _playerSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 Vector2 newPosition = _playerPosition + playerMovement;
 
-                newPosition.X = MathHelper.Clamp(newPosition.X, 0, _map.Width * TileWidth - _playerTexture.Width);
-                newPosition.Y = MathHelper.Clamp(newPosition.Y, 0, _map.Height * TileHeight - _playerTexture.Height);
+                newPosition.X = MathHelper.Clamp(newPosition.X, 0, _mainMap.Width * TileWidth - _playerTexture.Width);
+                newPosition.Y = MathHelper.Clamp(newPosition.Y, 0, _mainMap.Height * TileHeight - _playerTexture.Height);
 
                 _playerPosition = newPosition;
             }
@@ -151,7 +211,7 @@ namespace MyGame
 
             _camera.Update(_playerPosition, GraphicsDevice.Viewport);
 
-            _map.Update(gameTime);  // Update the map (includes the animated tiles)
+            _mainMap.Update(gameTime);  // Update the map (includes the animated tiles)
 
             base.Update(gameTime);
         }
@@ -165,7 +225,12 @@ namespace MyGame
             Rectangle sourceRect = new Rectangle(frameWidth * _currentFrame, 0, frameWidth, _playerTexture.Height);
 
             _spriteBatch.Begin(transformMatrix: _camera.Transform, sortMode: SpriteSortMode.FrontToBack);
-            _map.Draw(_spriteBatch);
+            
+            foreach (Map map in _maps)
+            {
+                map.Draw(_spriteBatch);
+            }
+
             _spriteBatch.Draw(_playerTexture, _playerPosition, sourceRect, Color.White, 0f, Vector2.Zero, 1f, _playerEffects, 0.5f); // changed SpriteEffects.None to _playerEffects
             _spriteBatch.End();
 
