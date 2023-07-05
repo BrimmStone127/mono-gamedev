@@ -17,9 +17,10 @@ public class AnimatedTile : Tile
         this.Texture = _animation.CurrentFrame;
     }
 
-    public override void Draw(SpriteBatch spriteBatch)
+    public void Draw(SpriteBatch spriteBatch, int currentFrame)
     {
         Rectangle destinationRectangle = new Rectangle(Position.ToPoint(), _animation.CurrentFrameRectangle.Size);
         spriteBatch.Draw(_animation.CurrentFrame, destinationRectangle, _animation.CurrentFrameRectangle, Color.White);
     }
+
 }
